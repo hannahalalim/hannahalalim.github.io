@@ -12,7 +12,12 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">Hanna Alalim</div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -272,9 +277,8 @@
             <h2 class="section-title">Certificates & Licenses</h2>
             <div class="certificates-grid">
                 <div class="certificate-card">
-                    <div class="certificate-placeholder">
-                        <i class="fas fa-certificate"></i>
-                        <p>Certificate Image</p>
+                    <div class="certificate-image">
+                        <img src="assets/certificates/california department.jpeg" alt="California Department of Public Health Certificate" loading="lazy" />
                     </div>
                     <div class="certificate-info">
                         <h3>Clinical Laboratory Scientist (Generalist)</h3>
@@ -283,9 +287,8 @@
                     </div>
                 </div>
                 <div class="certificate-card">
-                    <div class="certificate-placeholder">
-                        <i class="fas fa-certificate"></i>
-                        <p>Certificate Image</p>
+                    <div class="certificate-image">
+                        <img src="assets/certificates/ASCP.jpeg" alt="ASCP Board Certification" loading="lazy" />
                     </div>
                     <div class="certificate-info">
                         <h3>ASCP Board Certification</h3>
@@ -294,9 +297,8 @@
                     </div>
                 </div>
                 <div class="certificate-card">
-                    <div class="certificate-placeholder">
-                        <i class="fas fa-certificate"></i>
-                        <p>Certificate Image</p>
+                    <div class="certificate-image">
+                        <img src="assets/certificates/six sigma.jpeg" alt="Lean Healthcare Professional (CLHP) - Six Sigma" loading="lazy" />
                     </div>
                     <div class="certificate-info">
                         <h3>Lean Healthcare Professional (CLHP)</h3>
@@ -305,9 +307,8 @@
                     </div>
                 </div>
                 <div class="certificate-card">
-                    <div class="certificate-placeholder">
-                        <i class="fas fa-certificate"></i>
-                        <p>Certificate Image</p>
+                    <div class="certificate-image">
+                        <img src="assets/certificates/basic life support.jpeg" alt="BLS Provider Certificate" loading="lazy" />
                     </div>
                     <div class="certificate-info">
                         <h3>BLS Provider</h3>
@@ -316,9 +317,8 @@
                     </div>
                 </div>
                 <div class="certificate-card">
-                    <div class="certificate-placeholder">
-                        <i class="fas fa-certificate"></i>
-                        <p>Certificate Image</p>
+                    <div class="certificate-image">
+                        <img src="assets/certificates/lssybh.jpeg" alt="Clinical Microbiology Specialist Certificate" loading="lazy" />
                     </div>
                     <div class="certificate-info">
                         <h3>Clinical Microbiology Specialist</h3>
@@ -327,9 +327,8 @@
                     </div>
                 </div>
                 <div class="certificate-card">
-                    <div class="certificate-placeholder">
-                        <i class="fas fa-certificate"></i>
-                        <p>Certificate Image</p>
+                    <div class="certificate-image">
+                        <img src="assets/certificates/blood coordinating council.jpeg" alt="Total Quality Management for Blood Service Facilities Certificate" loading="lazy" />
                     </div>
                     <div class="certificate-info">
                         <h3>Total Quality Management for Blood Service Facilities</h3>
@@ -413,5 +412,24 @@
     </section>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        // Hamburger menu toggle for mobile
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        hamburger.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                navLinks.classList.toggle('open');
+            }
+        });
+        // Optional: close menu when a link is clicked (mobile UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>
