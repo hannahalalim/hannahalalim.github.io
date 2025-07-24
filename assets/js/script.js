@@ -9,8 +9,13 @@ window.addEventListener('scroll', function() {
 });
 
 // Smooth scrolling for navigation links
+// Exclude hamburger button from this handler
+// Only apply to anchor tags that are not inside .hamburger
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        // If the clicked element or its parent has class 'hamburger', skip
+        if (this.closest('.hamburger')) return;
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
